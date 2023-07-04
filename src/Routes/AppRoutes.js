@@ -8,10 +8,13 @@ import DataTransformationWindow from '../Components/DashboardWindows/Data/DataTr
 import DataMigrationWindow from '../Components/DashboardWindows/Data/DataMigrationWindow';
 import DataDashboard from '../Components/DashboardWindows/Data/DataDashboard';
 import AimlDashboard from '../Components/DashboardWindows/AIML/AimlDashboard';
+import JointPage from '../Pages/JointPage';
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<LoginPage />} path='/'></Route>
+      <Route element={<JointPage />} path='/joint'></Route>
+
       <Route
         element={
           <Dashboard>

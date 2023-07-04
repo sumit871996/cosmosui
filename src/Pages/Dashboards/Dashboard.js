@@ -30,7 +30,7 @@ const Dashboard = (props) => {
           border='top'
           flex
           direction='row-responsive'
-          overflow={{ vertical: 'scroll' }}
+          // overflow={{ vertical: 'scroll' }}
         >
           {props.children}
         </Box>

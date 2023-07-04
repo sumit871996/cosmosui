@@ -11,14 +11,14 @@
     "grommet": "^2.32.2",
     "grommet-icons": "^4.11.0",
     "grommet-theme-hpe": "^5.0.3",
+    "jointjs": "^3.7.4",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.0",
-    "jointjs": "file:rappid_trial.zip"
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

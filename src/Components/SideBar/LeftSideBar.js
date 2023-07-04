@@ -29,7 +29,7 @@ const LeftSideBar = (props) => {
       align='start'
       round='none'
       width={!['xsmall', 'small', 'medium'].includes(size) ? '16vw' : '150px'}
-      border='right'
+      border='all'
       height='100%'
     >
       <Box

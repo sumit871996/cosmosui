@@ -16,7 +16,7 @@ const DataTransformationWindow = () => {
   const ctx = useContext(DashboardContext);
   const size = useContext(ResponsiveContext);
   return (
-    <Box height='100%' direction='row-responsive' fill='horizontal'>
+    <Box direction='row-responsive' fill='horizontal'>
       <LeftSideBar
         sidebaroptions={dataTransformationOptions}
         title='Data Migration'

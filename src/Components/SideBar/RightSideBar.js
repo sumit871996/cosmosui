@@ -28,8 +28,9 @@ const RightSideBar = (props) => {
       align='start'
       round='none'
       width={!['xsmall', 'small', 'medium'].includes(size) ? '16vw' : '150px'}
-      border='left'
+      border='all'
       height='100%'
+      fill='vertical'
     >
       <Box
         align='start'

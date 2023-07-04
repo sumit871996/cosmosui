@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { dataMigrationOptions } from '../../../Config/dataMigrationOptions';
-
+import JointPage from '../../../Pages/JointPage';
 import LeftSideBar from '../../SideBar/LeftSideBar';
 import RightSideBar from '../../SideBar/RightSideBar';
 import { useContext } from 'react';
@@ -17,7 +17,7 @@ const DataMigrationWindow = () => {
   const ctx = useContext(DashboardContext);
   const size = useContext(ResponsiveContext);
   return (
-    <Box height='100%' direction='row-responsive' fill='horizontal'>
+    <Box direction='row-responsive' fill='horizontal'>
       <LeftSideBar
         sidebaroptions={dataMigrationOptions}
         title='Data Migration'
@@ -36,9 +36,11 @@ const DataMigrationWindow = () => {
         <Box width='100%' direction='row' fill='vertical'>
           <Box background='#F7F7F7' align='center' flex border='right'>
             <Text>Source</Text>
+            <JointPage title='Source 1' />
           </Box>
           <Box background='#F7F7F7' align='center' flex>
-            Destination
+            <Text>Destination</Text>
+            <JointPage title='Destination 1' />
           </Box>
         </Box>
       </Box>
