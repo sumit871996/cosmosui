@@ -8,26 +8,34 @@ import { useLocation } from 'react-router-dom';
 import DashboardWindow from '../../Components/DashboardWindows/Data/DataMigrationWindow';
 import { dept } from '../../Config/dataMigrationOptions';
 import ToolBar from '../../Components/ToolBar/ToolBar';
-
+import DataMigrationWindow from '../../Components/DashboardWindows/Data/DataMigrationWindow';
+import DashboardContext from './DashboardContext';
 const Dashboard = (props) => {
-  // const renderChildren = () => {
-  //   return React.cloneElement(props.children, {
-  //     selected: selected,
-  //   });
-  // };
+  const [selectedDashboard, setSelectedDashboard] = useState();
+
   const location = useLocation();
+  // const ctx = useContext(DashboardContext);
 
   const size = useContext(ResponsiveContext);
   return (
-    <Box>
-      <ToolBar
-        selectedDashboard={props.selectedDashboard}
-        setSelectedDashboard={props.setSelectedDashboard}
-      />
-      <Box height='100%' border='top' flex direction='row-responsive'>
-        {props.children}
+    <DashboardContext.Provider
+      value={{
+        selectedDashboard: selectedDashboard,
+        setSelectedDashboard: setSelectedDashboard,
+      }}
+    >
+      <Box flex>
+        <ToolBar />
+        <Box
+          border='top'
+          flex
+          direction='row-responsive'
+          overflow={{ vertical: 'scroll' }}
+        >
+          {props.children}
+        </Box>
       </Box>
-    </Box>
+    </DashboardContext.Provider>
   );
 };
 

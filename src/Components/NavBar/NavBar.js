@@ -105,7 +105,7 @@ const NavBar = () => {
             onClick={() => navigate('/profile')}
             size='42px'
             color='black'
-            src={require('../../Assets/cosmos/MSD2.jpg')}
+            src={require('../../Assets/cosmos/cosmos-final.png')}
           >
             {/* {getInitials()} */}
           </Avatar>

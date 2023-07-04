@@ -16,11 +16,6 @@ const cdcCardElements = [
     description: 'This is CDC',
     logo: <Database color='#00567A' size='xxlarge' />,
   },
-  {
-    title: 'Data Migration',
-    description: 'This will migrate data',
-    logo: <DocumentTransfer color='#00567A' size='xxlarge' />,
-  },
 ];
 
 export default cdcCardElements;

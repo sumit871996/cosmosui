@@ -1,10 +1,6 @@
-import { AppsRounded, Database, HostMaintenance, Nodes } from 'grommet-icons';
+import { Database, HostMaintenance, Nodes } from 'grommet-icons';
 
 const toolbarElements = [
-  {
-    title: 'Dashboard',
-    logo: <AppsRounded />,
-  },
   {
     title: 'Data',
     logo: <Database />,

@@ -1,15 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ResponsiveContext } from 'grommet';
 import { Box, Text, Button } from 'grommet';
+import { AppsRounded } from 'grommet-icons';
 import toolbarElemnts from './toolbarElements';
 import { useNavigate } from 'react-router-dom';
-const ToolBar = (props) => {
+import DashboardContext from '../../Pages/Dashboards/DashboardContext';
+const ToolBar = () => {
+  const size = React.useContext(ResponsiveContext);
+  const ctx = useContext(DashboardContext);
   const navigate = useNavigate();
   return (
-    <Box direction='row-responsive' pad='xxsmall'>
-      <Box flex direction='row-responsive' align='center' justify='start'>
+    <Box
+      // height={!['xsmall', 'small', 'medium'].includes(size) ? '' : '100%'}
+      // fill='vertical'
+      direction='row-responsive'
+      pad='xxsmall'
+      // flex
+    >
+      <Box
+        fill='horizontal'
+        direction='row-responsive'
+        align='center'
+        justify='start'
+      >
+        <Button
+          // active={ctx.selectedDashboard == el.title}
+          weight='bold'
+          color='black'
+          size='small'
+          label='Dashboard'
+          alignSelf='center'
+          icon={<AppsRounded />}
+          onClick={() => {
+            // ctx.setSelectedDashboard(el.title);
+            // navigate(`/${el.title}/dashboard`);
+          }}
+        />
         {toolbarElemnts.map((el) => (
           <Button
-            active={props.selectedDashboard == el.title}
+            active={ctx.selectedDashboard == el.title}
             weight='bold'
             color='black'
             size='small'
@@ -17,7 +46,7 @@ const ToolBar = (props) => {
             alignSelf='center'
             icon={el.logo}
             onClick={() => {
-              props.setSelectedDashboard(el.title);
+              ctx.setSelectedDashboard(el.title);
               navigate(`/${el.title}/dashboard`);
             }}
           />

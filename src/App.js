@@ -12,9 +12,13 @@ import NavBar from './Components/NavBar/NavBar';
 function App() {
   return (
     <Grommet theme={hpe} full>
-      <NavBar />
-      <AppRoutes />
-      <AppFooter />
+      <Box height='100vh'>
+        <NavBar />
+        <Box flex>
+          <AppRoutes />
+        </Box>
+        <AppFooter />
+      </Box>
     </Grommet>
   );
 }

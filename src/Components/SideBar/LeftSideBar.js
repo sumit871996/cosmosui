@@ -1,7 +1,6 @@
 import { Box, ResponsiveContext, Button, Text } from 'grommet';
 import LeftSideBarElement from './LeftSideBarElement';
 import { useContext, useState, React } from 'react';
-import { dataMigrationOptions } from '../../Config/dataMigrationOptions';
 import { SearchBox } from './SearchBox';
 import { useNavigate } from 'react-router-dom';
 import { Previous, Next } from 'grommet-icons';
@@ -9,14 +8,22 @@ import { Previous, Next } from 'grommet-icons';
 const LeftSideBar = (props) => {
   const navigate = useNavigate();
   const size = useContext(ResponsiveContext);
-  const searchSuggestions = dataMigrationOptions;
-  const [suggestions, setSuggestions] = useState(searchSuggestions);
-  const [selected, setSelected] = useState(dataMigrationOptions[0].name);
+  const searchSuggestions = props.sidebaroptions;
+  const [suggestions, setSuggestions] = useState(() => {
+    let a = [];
+    props.sidebaroptions.map((el) => {
+      a.push(el.name);
+    });
+    return a;
+  });
+
+  const [selected, setSelected] = useState(props.sidebaroptions[0].name);
   const navigateFunction = () => {
     props.setSelected(false);
     props.onExit(false);
-    navigate(`/dashboard/Solution/${dataMigrationOptions[0].name}`);
+    navigate(`/dashboard/Solution/${props.sidebaroptions[0].name}`);
   };
+
   return (
     <Box
       align='start'
@@ -35,12 +42,12 @@ const LeftSideBar = (props) => {
           label='Back'
           icon={<Previous />}
           onClick={() => {
-            navigate('');
+            navigate('/data/dashboard');
           }}
         />
         <Box>
           <Text color='black' weight='bold' size='large'>
-            Data Migration
+            {props.title}
           </Text>
           <Text margin={{ vertical: 'xsmall' }} size='xsmall'>
             Add or drag below options
@@ -48,14 +55,15 @@ const LeftSideBar = (props) => {
         </Box>
 
         <SearchBox
-          suggestions={dataMigrationOptions}
+          placeholder='Search Toolbox'
+          suggestions={searchSuggestions}
           setSuggestions={setSuggestions}
         />
       </Box>
-      {dataMigrationOptions.map((element) => {
+      {props.sidebaroptions.map((element) => {
         return (
           <LeftSideBarElement
-            dataMigrationOptions={element.name}
+            options={element.name}
             selected={selected}
             setSelected={setSelected}
           >
