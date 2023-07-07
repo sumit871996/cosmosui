@@ -1,0 +1,61 @@
+pipeline{
+     agent none
+     environment{     
+    DOCKERHUB_CREDENTIALS= credentials('dockerhub_id')
+    GITHUB_CREDENTIALS= credentials('github_id')
+    REVISION = 1
+    HARBOR_CREDENTIALS = credentials('harbor_id') 
+
+    
+} 
+     stages{
+         stage('Checkout') {
+         agent{
+     label 'imageidentificationfront'
+     }
+          steps{ 
+          git branch: 'main', url: 'https://github.com/sumit871996/cosmosui.git'
+               }
+          }
+      
+          stage('Docker build'){
+          agent{
+     label 'imageidentificationfront'
+     }
+          steps{
+               sh "docker image prune -af"
+               sh "docker image build -t 20.21.104.152/cosmos/cosmosui:$REVISION ."
+               sh "docker image tag 20.21.104.152/cosmos/cosmosui:$REVISION sumithpe/cosmosui:$REVISION"
+               }  
+          }
+          
+          
+          stage('Push to harbor & docker'){
+          agent{
+        label 'imageidentificationfront'
+    }
+            steps{
+                sh 'echo $HARBOR_CREDENTIALS_PSW | docker login 20.21.104.152 -u $HARBOR_CREDENTIALS_USR --password-stdin'  
+                sh "docker image push 20.21.104.152/cosmos/cosmosui:$REVISION"
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin' 
+                sh "docker image push sumithpe/cosmosui:$REVISION"
+            }
+        }
+
+        stage('Run Container'){
+          agent{
+        label 'imageidentificationfront'
+    }
+            steps{
+                script {
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                sh'''
+                docker container rm -f cosmosuicon
+                docker container run -d -p 3003:3000 --network cosmosui-bridge --name cosmosuicon sumithpe/cosmosui:$REVISION
+                '''
+            }
+                }
+        }
+        }
+     }
+}
