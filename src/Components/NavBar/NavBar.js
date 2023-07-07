@@ -68,6 +68,15 @@ const NavBar = () => {
             onClick={() => navigate('/home')}
           />
           <Button
+            label='About us'
+            color='black'
+            weight='bold'
+            size='medium'
+            pad={{ horizontal: 'small' }}
+            margin='0px'
+            onClick={() => navigate('/aboutus')}
+          />
+          <Button
             label='Contact'
             color='black'
             weight='bold'
@@ -76,14 +85,17 @@ const NavBar = () => {
             margin='0px'
             onClick={() => navigate('/contact')}
           />
+
           <Button
-            label='About'
-            color='black'
             weight='bold'
+            color='black'
             size='medium'
-            pad={{ horizontal: 'small' }}
             margin='0px'
-            onClick={() => navigate('/about')}
+            label='Create Project'
+            pad={{ horizontal: 'small' }}
+            onClick={() => {
+              navigate(`/createproject`);
+            }}
           />
 
           <Button

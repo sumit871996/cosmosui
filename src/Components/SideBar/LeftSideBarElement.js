@@ -34,7 +34,7 @@ const LeftSideBarElement = (props) => {
           props.setSelected(props.options);
         }}
       >
-        <Add color='black' />
+        <Add onClick={props.addToolbarElement} color='black' />
       </Box>
     </Box>
   );

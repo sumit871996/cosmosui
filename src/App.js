@@ -14,9 +14,7 @@ function App() {
   const size = useContext(ResponsiveContext);
   return (
     <Grommet theme={hpe} full>
-      <Box
-        height={!['xsmall', 'small', 'medium'].includes(size) ? '' : '100vh'}
-      >
+      <Box height='100vh'>
         <NavBar />
         <Box flex>
           <AppRoutes />

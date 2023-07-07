@@ -3,7 +3,7 @@ import LeftSideBarElement from './LeftSideBarElement';
 import { useContext, useState, React } from 'react';
 import { SearchBox } from './SearchBox';
 import { useNavigate } from 'react-router-dom';
-import { Previous, Next } from 'grommet-icons';
+import { Previous, Next, Target, Layer } from 'grommet-icons';
 
 const LeftSideBar = (props) => {
   const navigate = useNavigate();
@@ -60,17 +60,23 @@ const LeftSideBar = (props) => {
           setSuggestions={setSuggestions}
         />
       </Box>
-      {props.sidebaroptions.map((element) => {
-        return (
-          <LeftSideBarElement
-            options={element.name}
-            selected={selected}
-            setSelected={setSelected}
-          >
-            {element.logo}
-          </LeftSideBarElement>
-        );
-      })}
+
+      <LeftSideBarElement
+        options={'Source 1'}
+        addToolbarElement={props.addToolbarElement}
+        selected={selected}
+        setSelected={setSelected}
+      >
+        <Layer color='#00567A' />
+      </LeftSideBarElement>
+      <LeftSideBarElement
+        options={'Target 1'}
+        // addToolbarElement={props.addToolbarElement}
+        selected={selected}
+        setSelected={setSelected}
+      >
+        <Target color='#00567A' />
+      </LeftSideBarElement>
     </Box>
   );
 };

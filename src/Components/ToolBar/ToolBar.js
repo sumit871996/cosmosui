@@ -54,16 +54,7 @@ const ToolBar = () => {
         ))}
       </Box>
       {/* <Box justify='center' align='end'> */}
-      <Button
-        weight='bold'
-        color='black'
-        size='small'
-        label='Create Project'
-        alignSelf='center'
-        onClick={() => {
-          navigate(`/createproject`);
-        }}
-      />
+
       {/* </Box> */}
     </Box>
   );
