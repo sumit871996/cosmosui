@@ -4,10 +4,10 @@ import { useState } from 'react';
 import LoginPage from '../Pages/Authentication/LoginPage';
 import Dashboard from '../Pages/Dashboards/Dashboard';
 
-import DataTransformationWindow from '../Components/DashboardWindows/Data/DataTransformationWindow';
-import DataMigrationWindow from '../Components/DashboardWindows/Data/DataMigrationWindow';
-import DataDashboard from '../Components/DashboardWindows/Data/DataDashboard';
-import AimlDashboard from '../Components/DashboardWindows/AIML/AimlDashboard';
+import DataTransformationWindow from '../components/DashboardWindows/Data/DataTransformationWindow';
+import DataMigrationWindow from '../components/DashboardWindows/Data/DataMigrationWindow';
+import DataDashboard from '../components/DashboardWindows/Data/DataDashboard';
+import AimlDashboard from '../components/DashboardWindows/AIML/AimlDashboard';
 import JointPage from '../Pages/JointPage';
 const AppRoutes = () => {
   return (

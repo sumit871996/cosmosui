@@ -12,7 +12,7 @@ import {
   TextInput,
 } from 'grommet';
 
-import LoginService from '../../Services/Authentication/LoginService';
+import LoginService from '../../services/Authentication/LoginService';
 
 const LoginPage = () => {
   const [formValues, setFormValues] = React.useState({
@@ -87,7 +87,7 @@ const LoginPage = () => {
               <TextInput
                 id='email-sign-in'
                 name='email'
-                placeholder='james@hpe.com'
+                placeholder='example@domain.com'
                 type='email'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -113,7 +113,7 @@ const LoginPage = () => {
               align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
               margin={{ top: 'medium', bottom: 'small' }}
             >
-              <Button primary type='submit' label='Sign In' />
+              <Button primary color='#00567A' type='submit' label='Sign In' />
             </Box>
           </Form>
         </Box>

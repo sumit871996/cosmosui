@@ -1,15 +1,16 @@
 import { Box, ResponsiveContext } from 'grommet';
 import { React, useContext, useEffect, useState } from 'react';
-import LeftSideBar from '../../Components/SideBar/LeftSideBar';
-import BreadCrums from '../../Components/BreadCrumb/BreadCrumb';
+import LeftSideBar from '../../components/SideBar/LeftSideBar';
+import BreadCrums from '../../components/BreadCrumb/BreadCrumb';
 import { Button, Layer } from 'grommet';
 import { getURL } from '../../Utils/commonUtils';
 import { useLocation } from 'react-router-dom';
-import DashboardWindow from '../../Components/DashboardWindows/Data/DataMigrationWindow';
+import DashboardWindow from '../../components/DashboardWindows/Data/DataMigrationWindow';
 import { dept } from '../../Config/dataMigrationOptions';
-import ToolBar from '../../Components/ToolBar/ToolBar';
-import DataMigrationWindow from '../../Components/DashboardWindows/Data/DataMigrationWindow';
+import ToolBar from '../../components/ToolBar/ToolBar';
+import DataMigrationWindow from '../../components/DashboardWindows/Data/DataMigrationWindow';
 import DashboardContext from './DashboardContext';
+import Chatbot from 'src/components/Chatbot/Chatbot';
 const Dashboard = (props) => {
   const [selectedDashboard, setSelectedDashboard] = useState();
 
@@ -26,6 +27,7 @@ const Dashboard = (props) => {
     >
       <Box flex>
         <ToolBar />
+
         <Box
           border='top'
           flex

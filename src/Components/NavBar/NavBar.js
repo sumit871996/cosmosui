@@ -47,7 +47,7 @@ const NavBar = () => {
         >
           <Image
             fit='contain'
-            src={require('../../Assets/cosmos/cosmos-final.png')}
+            src={require('../../assets/cosmos/cosmos-final.png')}
           />
         </Box>
         <Box
@@ -117,7 +117,7 @@ const NavBar = () => {
             onClick={() => navigate('/profile')}
             size='42px'
             color='black'
-            src={require('../../Assets/cosmos/cosmos-final.png')}
+            src={require('../../assets/cosmos/cosmos-final.png')}
           >
             {/* {getInitials()} */}
           </Avatar>
